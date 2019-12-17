@@ -7,7 +7,7 @@ assert len(sys.argv) == 3, "Please specify an input path and output path"
 input_path = sys.argv[1]
 output_path = sys.argv[2]
 
-img = Image.open('megalodon.jpg')
+img = Image.open(input_path)
 width, height = img.size
 
 new_img = Image.new("RGB", (width, height), "white")
@@ -58,5 +58,5 @@ for i in range(width // 2, width - 1):
         r, g, b = img.getpixel((i, j))
         new_img.putpixel((i, j), (g, b, r))
 new_img_invert = ImageOps.invert(new_img)
-new_img_invert.save ('meggalodon.jpg')
+new_img_invert.save(output_path)
 
